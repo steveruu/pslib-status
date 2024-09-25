@@ -18,7 +18,7 @@ const Status = ({ ...props }: { url: string, name: string }) => {
     }, [props.url])
 
     return (
-        <div className='flex justify-between w-[35%] bg-slate-200 py-2 px-4 rounded-xl'>
+        <div className='flex justify-between w-[250px] bg-slate-200 py-2 px-4 rounded-xl'>
             <h2 className='text-slate-950'>{props.name}</h2>
             {/* check if online, loading or offline */}
             <span className={status === "online" ? 'text-green-600' : status === "offline" ? 'text-red-700' : 'text-blue-500'}>{status}
