@@ -14,8 +14,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "pslib.cz status",
-  description: "Tipnete si, jaký uptime mají bakaláři?",
+  title: "pslib status",
+  description: "Tipnete si, jaký uptime mají Bakaláři?",
 };
 
 export default function RootLayout({
