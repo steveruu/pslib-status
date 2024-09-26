@@ -23,15 +23,15 @@ export default async function Home() {
             <div className="flex flex-col justify-center items-center gap-2 mt-4">
                 <Status
                     status={bakastatus ? "online" : "offline"}
-                    name="bakalari"
+                    name="Bakaláři"
                 />
                 <Status
                     status={oldwebstat ? "online" : "offline"}
-                    name="oldweb"
+                    name="Starý web"
                 />
                 <Status
                     status={newwebstat ? "online" : "offline"}
-                    name="new web"
+                    name="Nový web"
                 />
             </div>
         </main>
