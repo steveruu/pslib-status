@@ -1,5 +1,6 @@
 import Status from "@/components/Status";
 import { ping } from "@/lib/fetch";
+import { revalidatePath } from "next/cache";
 
 export default async function Home() {
     const bakalariUrl = ping("https://bakalar.pslib.cz");
@@ -12,7 +13,7 @@ export default async function Home() {
         newwebUrl,
     ]);
 
-    console.log(bakastatus);
+    revalidatePath("/");
 
     return (
         <main className="max-w-[1024px] mx-auto my-4">
