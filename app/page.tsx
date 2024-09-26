@@ -1,6 +1,7 @@
 import Status from "@/components/Status";
 import { ping } from "@/lib/fetch";
 import { revalidatePath } from "next/cache";
+import { FaGithub } from "react-icons/fa";
 
 export default async function Home() {
     const bakalariUrl = ping("https://bakalar.pslib.cz");
@@ -21,7 +22,14 @@ export default async function Home() {
             <p className="text-center">
                 Tipnete si, jaký uptime mají Bakaláři?
             </p>
-            <div className="flex flex-col justify-center items-center gap-2 mt-4">
+            <a
+                href="https://github.com/steveruu/pslib-status"
+                className="block text-center underline text-blue-500"
+            >
+                <FaGithub className="inline-block" /> source code here
+            </a>
+
+            <div className="flex flex-col justify-center items-center gap-2 mt-6">
                 <Status
                     status={bakastatus ? "online" : "offline"}
                     name="Bakaláři"
