@@ -1,8 +1,19 @@
-import React, { Suspense, lazy } from "react";
+import Status from "@/components/Status";
+import { ping } from "@/lib/fetch";
 
-const Status = lazy(() => import("@/components/Status"));
+export default async function Home() {
+    const bakalariUrl = ping("https://bakalar.pslib.cz");
+    const oldwebUrl = ping("https://web.pslib.cz");
+    const newwebUrl = ping("https://pslib.cz");
 
-export default function Home() {
+    const [bakastatus, oldwebstat, newwebstat] = await Promise.all([
+        bakalariUrl,
+        oldwebUrl,
+        newwebUrl,
+    ]);
+
+    console.log(bakastatus);
+
     return (
         <main className="max-w-[1024px] mx-auto my-4">
             <h1 className="text-5xl text-center">pslib-status</h1>
@@ -10,18 +21,18 @@ export default function Home() {
                 Tipnete si, jaký uptime mají Bakaláři?
             </p>
             <div className="flex flex-col justify-center items-center gap-2 mt-4">
-                <Suspense fallback={<div>Loading...</div>}>
-                    <Status url="https://web.pslib.cz" name="Starý web" />
-                </Suspense>
-                <Suspense fallback={<div>Loading...</div>}>
-                    <Status url="https://pslib.cz" name="Nový web" />
-                </Suspense>
-                <Suspense fallback={<div>Loading...</div>}>
-                    <Status
-                        url="https://bakalar.pslib.cz/rodice/Timetable/Public/Actual/Class/2U"
-                        name="Bakaláři"
-                    />
-                </Suspense>
+                <Status
+                    status={bakastatus ? "online" : "offline"}
+                    name="bakalari"
+                />
+                <Status
+                    status={oldwebstat ? "online" : "offline"}
+                    name="oldweb"
+                />
+                <Status
+                    status={newwebstat ? "online" : "offline"}
+                    name="new web"
+                />
             </div>
         </main>
     );
