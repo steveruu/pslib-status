@@ -1,2 +1,2 @@
-# pslib-status
-Next.js webová stránka, která vrací, jestli jsou systémy PSLIB online či ne
+### sunsetted on 29/9
+replaced by https://status.pslib.app
