@@ -1,5 +1,16 @@
-export default function Home() {
-    window.location.href = "https://status.pslib.app";
+"use client";
 
-    return <div>sunsetting</div>;
-}
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+
+const HomePage = () => {
+    const router = useRouter();
+
+    useEffect(() => {
+        router.push("https://status.pslib.app");
+    }, [router]);
+
+    return null;
+};
+
+export default HomePage;
